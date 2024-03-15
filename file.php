@@ -20,7 +20,17 @@ if ($_SESSION["username"] == "Obama" and $_SESSION["password"] == "dr") {
 } else {
     echo "Du har inte rätt inglogninsuppgifter";
 }
+// $name = "obama";
+// $email = "elliot.bruno@gmail.com";
+// $password = "dr";
 
+// if ($_POST["name"] == $name and $_POST["Password"] == $password and $_POST["email"] == $email) {
+// echo "Welcome $name !";
+// } else {
+// echo "Sämst du är";
+// }
+// // $name = "Obama";
+// // $password = "dr";
 
 
 $target_dir = "uploads/";
