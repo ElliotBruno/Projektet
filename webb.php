@@ -11,14 +11,23 @@
 <body>
 
     <?php
-    session_start();
 
+    session_start();
+    // $name = "Obama";
+    // $password = "dr";
+
+
+
+
+
+
+    echo "Ladda upp en fil!";
 
     ?>
     <?php
     // if ($_POST["username"] == $name and $_POST["password"] == $password) {
     ?>
-    <form action="Inlämning3.php" method="post" enctype="multipart/form-data">
+    <form action="file.php" method="post" enctype="multipart/form-data">
         Select image to upload:
         <input type="file" name="fileToUpload" id="fileToUpload" />
         <input type="submit" value="Upload Image" name="sumbit" />
@@ -26,7 +35,6 @@
     <?php
     // }
     ?>
-
 
 
 
