@@ -18,7 +18,7 @@
     if ($_POST["name"] == $name and $_POST["Password"] == $password and $_POST["email"] == $email) {
         echo "Welcome $name";
     } else {
-        echo "Sämst du är";
+        echo "Sämst dud är";
     }
 
     // $servername = "localhost"; // kopplar till din lokala databas som körs i xampp
