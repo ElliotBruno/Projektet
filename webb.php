@@ -11,15 +11,21 @@
 <body>
 
     <?php
+    session_start();
+
     $name = "obama";
     $email = "elliot.bruno@gmail.com";
     $password = "dr";
 
     if ($_POST["name"] == $name and $_POST["Password"] == $password and $_POST["email"] == $email) {
-        echo "Welcome $name";
+        echo "Welcome $name !";
     } else {
-        echo "Sämst dud är";
+        echo "Sämst du är";
     }
+    // $name = "Obama";
+    // $password = "dr";
+
+
     session_start();
     // $name = "Obama";
     // $password = "dr";
@@ -40,12 +46,21 @@
         <input type="file" name="fileToUpload" id="fileToUpload" />
         <input type="submit" value="Upload Image" name="sumbit" />
     </form>
+    <?php
+    // }
+    ?>
+
 
 
 
 
 
     ?>
+
+
+
+
+
 
 </body>
 
