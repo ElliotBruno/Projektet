@@ -25,12 +25,29 @@
 
     ?>
     <?php
+    if ($_SESSION["name"] == "Obama" and $_SESSION["password"] == "dr" and $_SESSION["email"] == "elliottt.bruno@gmail.com") {
+        $file = $_FILES["fileToUpload"]["name"];
+
+
+
+        $myfile = fopen("file.txt", "a") or die("De fuckar");
+        fwrite($myfile, $_SESSION["name"] . ";" . $file . "\n");
+        fclose($myfile);
+    } else {
+        echo "Du har inte rätt inglogninsuppgifter";
+    }
     // if ($_POST["username"] == $name and $_POST["password"] == $password) {
     ?>
+
     <form action="file.php" method="post" enctype="multipart/form-data">
         Select image to upload:
         <input type="file" name="fileToUpload" id="fileToUpload" />
         <input type="submit" value="Upload Image" name="sumbit" />
+
+
+    </form>
+    <form action="index.html">
+        <input type="submit" value="Log out" />
     </form>
     <?php
     // }
