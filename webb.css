@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: gray;
+  background-color: blue;
   font-size: large;
 }
 
@@ -25,7 +25,7 @@ input.result {
 }
 
 tr.result:nth-child(even) {
-  background-color: azure;
+  background-color: blue;
 }
 
 tr.result:nth-child(odd) {
