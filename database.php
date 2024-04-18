@@ -59,7 +59,7 @@
         $_SESSION["username"] = $_POST["username"];
     }
     ?>
-    <form action="inlämning6.html">
+    <form action="file.html">
         <input type="submit" value="Log out" />
     </form>
 </body>
