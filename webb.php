@@ -1,119 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guestbook</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<h1></h1>
 
 <body>
-
     <?php
+    $servername = "localhost"; // kopplar till din lokala databas som körs i xampp
+    $username = "root";
+    $password = "";
+    $db = "php"; //använd namnet på din databas
 
-    session_start();
-    // $name = "Obama";
-    // $password = "dr";
-
-
-
-
-
-
-    echo "Ladda upp en fil!";
-
-    ?>
-    <?php
-    if ($_SESSION["name"] == "Obama" and $_SESSION["password"] == "dr" and $_SESSION["email"] == "elliottt.bruno@gmail.com") {
-        $file = $_FILES["fileToUpload"]["name"];
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
 
 
 
-        $myfile = fopen("file.txt", "a") or die("De fuckar");
-        fwrite($myfile, $_SESSION["name"] . ";" . $file . "\n");
-        fclose($myfile);
-    } else {
-        echo "Du har inte rätt inglogninsuppgifter";
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-    // if ($_POST["username"] == $name and $_POST["password"] == $password) {
+
+
+
+    $sql = "SELECT * FROM users";
+    $result = $conn->query($sql);
+
+
+    $login_success = false;
+    $full_name = "";
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if (
+                $row["username"] == $_POST["username"] &&
+                $row["password"] == $_POST["password"]
+            ) {
+                $login_success = true;
+                $full_name = $row["name"];
+            }
+        }
+    } else {
+        echo "0 results";
+    }
+
+
+    $conn->close();
+
+
+    if ($login_success) {
+        session_start();
+        echo "Connected successfully" . "<br>";
+        echo "Hej " . $full_name . "<br>";
+        echo "<a href='file.php'>Ladda upp fil</a>";
+        $_SESSION["username"] = $_POST["username"];
+    } else {
+        echo "Inloggning misslyckades";
+    }
+
     ?>
-
-    <form action="file.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload" />
-        <input type="submit" value="Upload Image" name="sumbit" />
-
-
-    </form>
     <form action="index.html">
         <input type="submit" value="Log out" />
     </form>
-    <?php
-    // }
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
-
-
 </html>
-
-<!-- 
-// $servername = "localhost"; // kopplar till din lokala databas som körs i xampp
-// $username = "root";
-// $password = "";
-// $db = "inlämning4"; //använd namnet på din databas
-
-
-
-// if ($_POST["username"] == $name and $_POST["password"] == $password) {
-// echo "Welcome $name";
-// } else {
-// echo "Sämst";
-// }
-// // Create connection
-// $conn = mysqli_connect($servername, $username, $password, $db);
-// $sql = "SELECT * FROM guestbook ORDER BY time desc";
-// $result = $conn->query($sql);
-
-// if ($result->num_rows > 0) {
-// while ($row = $result->fetch_assoc()) {
-// echo ("
-<hr>
-// Posts: <br>
-// <br>
-// " . $row["time"] . "<br>
-// From: " . $row["name"] . "<br>
-// Email: " . $row["email"] . "<br>
-// <a href='" . $row["homepage"] . "'>Homepage</a>
-// <br>
-// Comment: " . $row["comment"] . "<br>
-
-// <div style='width: 100%'>
-    // <iframe width='50%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=100%%26amp;height=600&amp;hl=en&amp;q=" . $row["address"] . "+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'>
-        // <a href='https://www.gps.ie/sport-gps/'>hiking gps</a>
-        // </iframe>
-    // </div>
-
-
-// "
-
-// );
-// }
-// } else {
-// echo "0 results";
-// }
-
-// $conn->close(); -->

@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guestbook</title>
+    <title>Document</title>
     <style>
       input {
         background-color: cyan;
       }
     </style>
   </head>
-
   <body>
-    <h1>Elliots Hub</h1>
-
-    <form action="webb.php" method="post" enctype="multipart/form-data">
-      Name: <input type="text" name="name" id="name" required />
+    <form action="webb.php" method="post">
+      Username:<br />
+      <input type="text" name="username" required />
       <br />
+      Password:<br />
+      <input type="password" name="password" required />
       <br />
-      Email: <input type="text" name="email" id="email" required />
-      <br />
-      <br />
-      Password: <input type="password" name="Password" id="Password" required />
-      <br />
-
-      <input type="submit" value="Log in" name="submit" />
+      <input type="submit" value="Submit" />
     </form>
-
-    <br />
   </body>
 </html>
 <!-- http://localhost/projektet/darealting/projektet/ -->

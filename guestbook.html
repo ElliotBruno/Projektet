@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guestbook</title>
+  </head>
+
+  <body>
+    <h1>Elliots greatest Guestbook</h1>
+
+    <form action="guestbook.php" method="post" enctype="multipart/form-data">
+      Name: <input type="text" name="name" id="name" />
+      <br />
+      <br />
+      Email: <input type="text" name="email" id="email" />
+      <br />
+      <br />
+      Homepage: <input type="text" name="homepage" id="homepage" />
+      <br />
+      <br />
+      Comment: <input type="text" name="comment" id="comment" />
+      <br />
+      <br />
+      <input type="submit" value="Lägg till" name="submit" />
+    </form>
+    <br />
+    <form action="index.html">
+      <input type="submit" value="Log out" />
+    </form>
+  </body>
+</html>
